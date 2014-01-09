@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demoz", "Demoz\Demoz.vcxproj", "{3BDFBE1E-B3A5-480E-91DB-2E6B41C6BEA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47} = {89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wincommon", "..\wincommon\wincommon\wincommon.vcxproj", "{89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BDFBE1E-B3A5-480E-91DB-2E6B41C6BEA8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3BDFBE1E-B3A5-480E-91DB-2E6B41C6BEA8}.Debug|Win32.Build.0 = Debug|Win32
+		{3BDFBE1E-B3A5-480E-91DB-2E6B41C6BEA8}.Release|Win32.ActiveCfg = Release|Win32
+		{3BDFBE1E-B3A5-480E-91DB-2E6B41C6BEA8}.Release|Win32.Build.0 = Release|Win32
+		{89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47}.Debug|Win32.ActiveCfg = Debug|Win32
+		{89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47}.Debug|Win32.Build.0 = Debug|Win32
+		{89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47}.Release|Win32.ActiveCfg = Release|Win32
+		{89B8AC8B-9A72-41EE-A58D-E2D2B5D67F47}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
