@@ -2,7 +2,7 @@
 #include "tDialog.h"
 #include "Handlers.h"
 #include "tButton.h"
-#include "tListBox.h"
+#include "tDemoList.h"
 
 HINSTANCE hInst = NULL;
 
@@ -13,10 +13,16 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
     using namespace Windows;
     tDialog mainDialog(6, 5, 424, 176, pszTitle);
-    mainDialog.AddControl((tControl*)new tButton(TEXT("&Run"), 228, 350, 136, 45, IDC_BTN_RUN));
-    mainDialog.AddControl((tControl*)new tButton(TEXT("&Quit"), 419, 350, 136, 45, IDC_BTN_QUIT));
-    mainDialog.AddControl((tControl*)new tButton(TEXT("&Settings..."), 830, 290, 126, 35, IDC_BTN_SETTINGS, SpawnSettingsDialog));
-    mainDialog.AddControl((tControl*)new tListBox(TEXT("Demo List"), 11, 10, 748, 310, IDC_LIST));
+	tDemoList* pDemoList = new tDemoList("demoz.dsf", TEXT("Demo List"), 11, 10, 748, 310, IDC_LIST);
+	tButton* pRunButton = new tButton(TEXT("&Run"), 228, 350, 136, 45, IDC_BTN_RUN, RunDemo);
+	pRunButton->SetAdditinalInfo(dynamic_cast<PVOID>(pDemoList));
+    mainDialog.AddControl((tControl*)pRunButton);
+    mainDialog.AddControl((tControl*)new tButton(TEXT("&Stop"), 419, 350, 136, 45, IDC_BTN_STOP));
+    tButton* pSettingsButton = new tButton(TEXT("&Settings..."), 830, 290, 126, 35, IDC_BTN_SETTINGS, SpawnSettingsDialog);
+	pSettingsButton->SetAdditinalInfo(dynamic_cast<PVOID>(pDemoList));
+	mainDialog.AddControl((tControl*)pSettingsButton);
+	
+    mainDialog.AddControl((tControl*)pDemoList);
     int ret = mainDialog.Show((HWND)NULL);
     return ret;
 }

@@ -1,10 +1,13 @@
 #include "DefaultResource.h"
 
 #define IDC_BTN_RUN 1002
-#define IDC_BTN_QUIT 1003
+#define IDC_BTN_STOP 1003
 #define IDC_BTN_SETTINGS 1004
-#define IDC_BTN_QUIT2 1005
-#define IDC_BTN_BROWSE1 1006
+#define IDC_BTN_QUIT 1005
+#define IDC_BTN_SAVE 1006
+#define IDC_BTN_BROWSE1 1007
+#define IDC_BTN_BROWSE2 1008
+#define IDC_BTN_BROWSE3 1009
 
 #define IDC_LIST 2001
 

@@ -83,10 +83,15 @@
   <ItemGroup>
     <ClCompile Include="Handlers.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="tDemoList.cpp" />
+    <ClCompile Include="tDSFFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handlers.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="tDemo.h" />
+    <ClInclude Include="tDemoList.h" />
+    <ClInclude Include="tDSFFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
