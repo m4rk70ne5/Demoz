@@ -6,13 +6,17 @@ tPathSettings tDSFFile::ReadSettings(wstring key, string settingsFile)
 	// open file
 	std::ifstream file;
 	file.open(settingsFile, ifstream::binary);
-	// the directory
-	pair<map<wstring, int>, int> demoOffset;
-	int bodyOffset = FillHeader(&file, demoOffset);
-	if (bodyOffset >= 0)
+	if (file.good())
 	{
-		tPathSettings settings = GetSettings(&file, demoOffset.first[key] + demoOffset.second);
-		// search for the key
+		// the directory
+		pair<map<wstring, int>, int> demoOffset;
+		int bodyOffset = FillHeader(&file, demoOffset);
+		tPathSettings settings;
+		if (bodyOffset >= 0)
+		{
+			settings = GetSettings(&file, demoOffset.first[key] + demoOffset.second);
+			// search for the key
+		}
 		file.close();
 		return settings;
 	}
@@ -101,8 +105,8 @@ int tDSFFile::InsertNewDemo(ofstream* outfile, ofstream* outfile2, wstring key, 
 void tDSFFile::WriteDemos(vector<tDemoListEntry*>& demos)
 {
 	ofstream out1, out2;
-	out1.open(m_filename, ofstream::binary);
-	out2.open("temp.bin", ofstream::binary);
+	out1.open(m_filename, ofstream::binary | ofstream::trunc);
+	out2.open("temp.bin", ofstream::binary | ofstream::trunc);
 	// write signatures and offset int to out1
 	int temp;
 	out1.write("DZ", 2);

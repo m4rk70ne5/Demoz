@@ -52,8 +52,22 @@ int RunDemo(Windows::tControl* control, PVOID listBox)
 {
 	tDemoList* pDemoList = static_cast<tDemoList*>(listBox);
 	int index = pDemoList->GetCurrentEntry();
-	// disable the run button
 	pDemoList->RunEntry(index); // run the demo
+	// disable the run button, enable stop
+	EnableWindow(control->GetHwnd(), FALSE);
+	EnableWindow(GetDlgItem(control->GetParentWindow(), IDC_BTN_STOP), TRUE);
+	// disable settings
+	EnableWindow(GetDlgItem(control->GetParentWindow(), IDC_BTN_SETTINGS), FALSE);
+	return 0;
+}
+
+int StopDemo(Windows::tControl* control, PVOID listBox)
+{
+	tDemoList* pDemoList = static_cast<tDemoList*>(listBox);
+	int index = pDemoList->GetCurrentEntry();
+	// enable run
+	pDemoList->SendStopSignal(index);
+	return 0;
 }
 
 int SaveSettings(Windows::tControl* control, PVOID settings)
@@ -69,4 +83,5 @@ int SaveSettings(Windows::tControl* control, PVOID settings)
 	pSettings->outputPath = wstring(path);
 	// free the memory
 	free(path);
+	return 0;
 }

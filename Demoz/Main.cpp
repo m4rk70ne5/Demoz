@@ -17,7 +17,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	tButton* pRunButton = new tButton(TEXT("&Run"), 228, 350, 136, 45, IDC_BTN_RUN, RunDemo);
 	pRunButton->SetAdditinalInfo(dynamic_cast<PVOID>(pDemoList));
     mainDialog.AddControl((tControl*)pRunButton);
-    mainDialog.AddControl((tControl*)new tButton(TEXT("&Stop"), 419, 350, 136, 45, IDC_BTN_STOP));
+	tButton* pStopButton = new tButton(TEXT("&Stop"), 419, 350, 136, 45, IDC_BTN_STOP, StopDemo, TRUE);
+	pStopButton->SetAdditinalInfo(dynamic_cast<PVOID>(pDemoList));
+    mainDialog.AddControl((tControl*)pStopButton);
     tButton* pSettingsButton = new tButton(TEXT("&Settings..."), 830, 290, 126, 35, IDC_BTN_SETTINGS, SpawnSettingsDialog);
 	pSettingsButton->SetAdditinalInfo(dynamic_cast<PVOID>(pDemoList));
 	mainDialog.AddControl((tControl*)pSettingsButton);

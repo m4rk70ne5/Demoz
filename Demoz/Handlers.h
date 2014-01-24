@@ -11,6 +11,7 @@ namespace Windows
 int SpawnSettingsDialog(Windows::tControl*, PVOID); // command handler for settings
 int SpawnFileBrowser(Windows::tControl*, PVOID);
 int RunDemo(Windows::tControl*, PVOID);
+int StopDemo(Windows::tControl*, PVOID);
 int SaveSettings(Windows::tControl*, PVOID);
 
 #endif
