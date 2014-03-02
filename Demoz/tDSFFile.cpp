@@ -9,7 +9,7 @@ tPathSettings tDSFFile::ReadSettings(wstring key, string settingsFile)
 	if (file.good())
 	{
 		// the directory
-		pair<map<wstring, int>, int> demoOffset;
+		pair<map<wstring, int>, int> demoOffset; // first = demo name->offset within body, second = offset of body within file
 		int bodyOffset = FillHeader(&file, demoOffset);
 		tPathSettings settings;
 		if (bodyOffset >= 0)
@@ -124,6 +124,7 @@ void tDSFFile::FinalizeWrite(ofstream* first, ofstream* second)
 	int bodyOffset = first->tellp();
 	first->seekp(2);
 	first->write((char*)&bodyOffset, sizeof(int));
+	first->seekp(bodyOffset); // seek back to the offset
 	// now concatenate the second file to the first
 	second->close();
 	ifstream tempInput;
@@ -139,5 +140,5 @@ void tDSFFile::FinalizeWrite(ofstream* first, ofstream* second)
 		}
 	}
 	tempInput.close();
-	second->close();
+	first->close();
 }

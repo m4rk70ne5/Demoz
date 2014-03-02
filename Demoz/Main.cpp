@@ -3,14 +3,39 @@
 #include "Handlers.h"
 #include "tButton.h"
 #include "tDemoList.h"
+#include "tGraphicsController.h"
+#include "tInputController.h"
+#include "tProgramManager.h"
 
 HINSTANCE hInst = NULL;
+
+void Cleanup()
+{
+	// deallocate controllers and other singletons
+	tGraphicsController* pGC = tGraphicsController::GetGraphicsController();
+	if (pGC != NULL)
+	{
+		delete pGC;
+	}
+	tInputController* pIC = tInputController::GetInputController();
+	if (pIC != NULL)
+	{
+		delete pIC;
+	}
+	tProgramManager* pPM = tProgramManager::GetProgramManager();
+	if (pPM != NULL)
+	{
+		delete pPM;
+	}
+}
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
     hInst = hInstance;
     LPCWSTR pszTitle = L"3D Graphics Demo Framework";
-
+	
+	int ret;
+	{
     using namespace Windows;
     tDialog mainDialog(6, 5, 424, 176, pszTitle);
 	tDemoList* pDemoList = new tDemoList("demoz.dsf", TEXT("Demo List"), 11, 10, 748, 310, IDC_LIST);
@@ -25,6 +50,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	mainDialog.AddControl((tControl*)pSettingsButton);
 	
     mainDialog.AddControl((tControl*)pDemoList);
-    int ret = mainDialog.Show((HWND)NULL);
+    ret = mainDialog.Show((HWND)NULL);
+	} // these scope braces will automatically deallocate objects attached to mainDialog
+
+	// clean up
+	Cleanup();
     return ret;
 }

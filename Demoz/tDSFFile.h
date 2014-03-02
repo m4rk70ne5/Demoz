@@ -14,6 +14,7 @@ class tDemoListEntry;
 class tDSFFile
 {
 public:
+	tDSFFile(string file) : m_filename(file) { };
 	tPathSettings ReadSettings(wstring, string);
 	void WriteDemos(vector<tDemoListEntry*>&);
 protected:

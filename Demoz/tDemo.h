@@ -4,10 +4,18 @@
 #include <Windows.h>
 #include <string>
 #include <SDL2/SDL.h>
+#include <vector>
+#include <map>
 
 using namespace std;
 
 class tDemoList;
+class tGeometry;
+class tGraphicsController;
+class tInputController;
+class tObject;
+class tCamera;
+class tGameClock;
 
 struct tPathSettings
 {
@@ -26,13 +34,18 @@ class tDemo
 {
 protected:
 	bool m_done;
-	int m_width, m_height; // of the window
-	SDL_Window* m_window; // every demo has a window
-	SDL_GLContext m_context;
-	virtual void InitDemo();
-	virtual void InitSubsystem();
+	virtual void InitDemo(int = 0, int = 0);
 	virtual void EndDemo();
 	static unsigned __stdcall StopDemoThread(void*);
+	static tGraphicsController* m_tGC;
+	static tInputController* m_IC;
+	int m_width, m_height;
+	map<int, vector<tGeometry*>> m_geoContainer;
+	map<int, string> m_vaoProgram;
+	string ResString(char*);
+	string ShadString(char*);
+	vector<tObject*> m_dynamicObj;
+	tGameClock* m_gameClock;
 public:
 	tDemoList* m_parentListBox;
 	tPathSettings m_settings;
@@ -41,14 +54,17 @@ public:
 	virtual ~tDemo();
 	tDemo(const tDemo&) {};
 	void Start(); // "game loop" goes here
-	void SetDimensions(int width, int height) { m_width = width; m_height = height; };
-	void Stop() { m_done = true; };
+	void SetDimensions(int width, int height) {m_width = width; m_height = height;};
+	void Stop();
 };
 
 class tSpinningBoxDemo : public tDemo
 {
 public:
 	tSpinningBoxDemo() : tDemo() {};
+	virtual void InitDemo(int = 0, int = 0);
+	virtual void EndDemo();
+	tCamera* m_Camera;
 };
 
 // create demos here

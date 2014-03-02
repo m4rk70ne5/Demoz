@@ -13,6 +13,8 @@ tDemoList::tDemoList(string settingsFile, TCHAR* title, int x, int y, int w, int
 {
 	// create the demos
 	CreateDemos();
+	// new file reader
+	m_fileIO = new tDSFFile(settingsFile);
 }
 
 tDemoList::~tDemoList()
@@ -24,18 +26,20 @@ tDemoList::~tDemoList()
 	{
 		delete *iVDemos;
 	}
+	delete m_fileIO;
 }
 
 void tDemoList::CreateDemos()
 {
 	Add(CreateDemo<tSpinningBoxDemo>, L"Spinning Boxes", 800, 600);
-};
+}
 
 void tDemoList::Add(tDemo*(*createMe)(), TCHAR* name, int width, int height)
 {
 	// don't call the creation function yet -- only right before running
 	// you don't want to create demos in memory that aren't ever ran
 	m_entries.push_back(new tDemoListEntry(name, createMe, width, height));
+	m_entries.back()->m_settings = m_fileIO->ReadSettings(m_entries.back()->m_name, m_settingsFile); // load settings
 }
 
 void tDemoList::CreateMe(HWND hwnd)
@@ -62,7 +66,7 @@ void tDemoList::RunEntry(int index)
 	tDemo* pDemo = (tDemo*)(entry.m_creation());
 	entry.m_demo = pDemo;
 	pDemo->m_parentListBox = this;
-	pDemo->m_settings = m_fileIO->ReadSettings(entry.m_name, m_settingsFile); // scan file for settings, using m_name as the key
+	pDemo->m_settings = entry.m_settings; // scan file for settings, using m_name as the key
 	pDemo->m_title = string(entry.m_name.begin(), entry.m_name.end());
 	pDemo->SetDimensions(entry.m_width, entry.m_height);
 	entry.m_threadHandle = (HANDLE)_beginthreadex(NULL, 0, StartDemoThread, dynamic_cast<void*>(pDemo), 0, NULL); // start pDemo in a new thread
@@ -90,7 +94,7 @@ void tDemoList::SendStopSignal(int index)
 		Sleep(500);
 		GetExitCodeThread(entry.m_threadHandle, &exitCode);
 	}
-	if (i == 10)
+	if (i == 20)
 	{
 		// kill the thread manually
 		TerminateThread(entry.m_threadHandle, -1);

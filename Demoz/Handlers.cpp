@@ -24,10 +24,10 @@ int SpawnSettingsDialog(Windows::tControl* control, PVOID listBox)
     settingsDialog.AddControl((tControl*)(new tBrowseButton(TEXT(". . ."), 445, 30, 35, 25, IDC_BTN_BROWSE1, IDC_TEXT1, SpawnFileBrowser)));
     settingsDialog.AddControl((tControl*)(new tControl(10, 75, 110, 25, TEXT("&Resource Dir:"))));
     settingsDialog.AddControl((tControl*)(new tEdit((TCHAR*)(pSettings->resourcePath).c_str(), 135, 75, 300, 25, IDC_TEXT2))); // change id later
-	settingsDialog.AddControl((tControl*)(new tBrowseButton(TEXT(". . ."), 445, 30, 35, 25, IDC_BTN_BROWSE2, IDC_TEXT2, SpawnFileBrowser)));
+	settingsDialog.AddControl((tControl*)(new tBrowseButton(TEXT(". . ."), 445, 75, 35, 25, IDC_BTN_BROWSE2, IDC_TEXT2, SpawnFileBrowser)));
     settingsDialog.AddControl((tControl*)(new tControl(10, 120, 105, 25, TEXT("&Output Dir:")))); // change id later
     settingsDialog.AddControl((tControl*)(new tEdit((TCHAR*)(pSettings->outputPath).c_str(), 135, 120, 300, 25, IDC_TEXT3))); // change id later
-	settingsDialog.AddControl((tControl*)(new tBrowseButton(TEXT(". . ."), 445, 30, 35, 25, IDC_BTN_BROWSE3, IDC_TEXT3, SpawnFileBrowser)));
+	settingsDialog.AddControl((tControl*)(new tBrowseButton(TEXT(". . ."), 445, 120, 35, 25, IDC_BTN_BROWSE3, IDC_TEXT3, SpawnFileBrowser)));
     return settingsDialog.Show(control->GetParentWindow());
 }
 
@@ -83,5 +83,7 @@ int SaveSettings(Windows::tControl* control, PVOID settings)
 	pSettings->outputPath = wstring(path);
 	// free the memory
 	free(path);
+	// close the dialog
+	EndDialog(control->GetParentWindow(), 0);
 	return 0;
 }
