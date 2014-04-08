@@ -3,6 +3,7 @@
 
 #include "tListBox.h"
 #include "tDemo.h"
+#include "tBSPDemo.h"
 #include <string>
 #include <vector>
 

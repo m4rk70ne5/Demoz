@@ -7,11 +7,13 @@
 #include "tProgramManager.h"
 #include "tCamera.h"
 #include "tGameClock.h"
+#include "tTextureManager.h"
 #include "Utility.h"
 #include <glm/gtc/matrix_transform.hpp>
 
 tGraphicsController* tDemo::m_tGC = NULL;
 tInputController* tDemo::m_IC = NULL;
+tTextureManager* tDemo::m_tTM = NULL;
 
 void tDemo::Start()
 {
@@ -36,25 +38,27 @@ void tDemo::InitDemo(int maxFps, int minFps)
 	pGC->Initialize(m_title.c_str(), m_width, m_height);
 	// optimization: set graphics controller to member
 	m_tGC = pGC;
+	// textures
+	m_tTM = tTextureManager::GetTextureManager();
 	// now, set the default projection matrix
 	// (for a different one, set it in the derived InitDemo())
 	// 10 in each direction, and 1000 to the far plane
 	// glm::mat4 proj = pGC->GetProjectionMatrix();
 	glm::mat4 proj;
-	float r = 4.0f;
-	float l = -4.0f;
-	float t = 3.0f;
-	float b = -3.0f;
-	float f = 20.0f;
+	float f = 100.0f;
 	float n = 1.0f;
+	float t = glm::tan(45.0f / 2) * n;
+	float b = -t;
+	float r = t * (4.0f / 3.0f);
+	float l = -r;
 	proj[0][0] = n / r;
 	proj[1][1] = n / t;
-	proj[2][2] = (n + f) / (n - f);
-	proj[3][2] = (2 * n * f ) / (n - f);
+	proj[2][2] = -(f + n) / (f - n);
+	proj[3][2] = -(2 * n * f ) / (f - n);
 	proj[2][3] = -1.0f;
 	proj[3][3] = 0.0f;
-	pGC->SetProjectionMatrix(glm::perspective(45.0f, (float)(4.0f / 3.0f), 0.1f, 100.0f));
-	// pGC->SetProjectionMatrix(proj);
+	// pGC->SetProjectionMatrix(glm::perspective(45.0f, (float)(4.0f / 3.0f), 0.1f, 100.0f));
+	pGC->SetProjectionMatrix(proj);
 	// glDepthRange(-1, 1); // set the depth range
 	// create input controller
 	m_IC = tInputController::GetInputController();
@@ -77,6 +81,7 @@ void tDemo::EndDemo()
 	delete m_gameClock;
 	delete m_tGC;
 	delete m_IC;
+	delete m_tTM;
 
 	SDL_Quit(); // when done
 }

@@ -13,6 +13,7 @@ class tDemoList;
 class tGeometry;
 class tGraphicsController;
 class tInputController;
+class tTextureManager;
 class tObject;
 class tCamera;
 class tGameClock;
@@ -39,6 +40,7 @@ protected:
 	static unsigned __stdcall StopDemoThread(void*);
 	static tGraphicsController* m_tGC;
 	static tInputController* m_IC;
+	static tTextureManager* m_tTM;
 	int m_width, m_height;
 	map<int, vector<tGeometry*>> m_geoContainer;
 	map<int, string> m_vaoProgram;
