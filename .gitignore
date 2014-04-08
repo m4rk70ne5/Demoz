@@ -1,0 +1,7 @@
+/textures
+/bin
+/obj
+*.user
+*.suo
+*.sln.cache
+*.opensdf

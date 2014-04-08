@@ -1,0 +1,21 @@
+To create a new demo:
+   1) Inherit from class tDemo (e.g., class tExampleDemo : public Demo { }; )
+   2) Override InitDemo
+      - call original with the max and min fps
+      - map programs to batches via the geoContainer and vaoProgram
+        - a batch is just a collection of geometry running under one particular vao
+        - geoContainer[vao] = vector of geometry ptrs (for creating geometry, see section below)
+        - vaoProgram[vao] = program name
+      - load textures to the texture manager
+      - create camera (optional)
+      - set projection matrix uniform
+    3) Override EndDemo to destroy necessary objects (but call original EndDemo)
+    4) Create your geometry
+      - Can inherit from class tMesh (but doesn't have to)
+      - Make sure you override the draw(), update(), and SetUniforms() routine
+      - If not inheriting from tMesh, create an Init() routine that initializes buffers and pointers
+    5) Add the demo in tDemoList::CreateDemos()
+
+And, of course, create your shaders, placing them in the shader directories created by running create.py 
+[name of demo] (under the resources directory).  Put your resources (such as textures) in the resource directory.  
+Finally, click Settings... when selecting your demo, and change the directories to point to those places.
