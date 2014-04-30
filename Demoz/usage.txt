@@ -2,13 +2,20 @@ To create a new demo:
    1) Inherit from class tDemo (e.g., class tExampleDemo : public Demo { }; )
    2) Override InitDemo
       - call original with the max and min fps
-      - map programs to batches via the geoContainer and vaoProgram
-        - a batch is just a collection of geometry running under one particular vao
-        - geoContainer[vao] = vector of geometry ptrs (for creating geometry, see section below)
-        - vaoProgram[vao] = program name
+      - section #1:  load programs
+      - section #2:  load geometry
+         - map programs to batches via the geoContainer and vaoProgram
+           - a batch is just a collection of geometry running under one particular vao
+           - geoContainer[vao] = vector of geometry ptrs (for creating geometry, see section below)
+           - vaoProgram[vao] = program name
       - load textures to the texture manager
-      - create camera (optional)
-      - set projection matrix uniform
+      - section #3:  dynamic objects
+           - mode toggler
+           - create camera (optional, but most demos will have this)
+      - section #4:  initialize/create uniforms
+           - any uniform blocks?
+           - projection matrix uniform, camera, etc
+      - attach camera to input
     3) Override EndDemo to destroy necessary objects (but call original EndDemo)
     4) Create your geometry
       - Can inherit from class tMesh (but doesn't have to)

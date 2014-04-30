@@ -4,6 +4,7 @@
 #include "tListBox.h"
 #include "tDemo.h"
 #include "tBSPDemo.h"
+#include "tOctreeDemo.h"
 #include <string>
 #include <vector>
 

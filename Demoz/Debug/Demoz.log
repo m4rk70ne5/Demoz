@@ -1,12 +1,46 @@
-﻿Build started 3/19/2014 10:18:27 PM.
-     1>Project "C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Demoz\Demoz.vcxproj" on node 2 (Build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 4/28/2014 9:48:24 PM.
+     1>Project "C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Demoz\Demoz.vcxproj" on node 2 (Rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Demoz.lastbuildstate".
+       InitializeBuildStatus:
          Creating "Debug\Demoz.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Mark\Documents\Visual Studio 2012\Projects\wincommon\wincommon" /I"C:\Users\Mark\Documents\Visual Studio 2012\Projects\grphcmn\grphcmn" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt tBSPDemo.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Mark\Documents\Visual Studio 2012\Projects\wincommon\wincommon" /I"C:\Users\Mark\Documents\Visual Studio 2012\Projects\grphcmn\grphcmn" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Handlers.cpp Main.cpp tBSPDemo.cpp tDemo.cpp tDemoList.cpp tDSFFile.cpp tOctreeDemo.cpp
+         tOctreeDemo.cpp
+     1>c:\program files (x86)\microsoft visual studio 11.0\vc\include\math.h(631): warning C4005: 'M_PI' : macro redefinition
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\sdl2\sdl_stdinc.h(339) : see previous definition of 'M_PI'
+     1>c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\toctreedemo.cpp(151): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\mark\documents\visual studio 2012\projects\grphcmn\grphcmn\utility.h(21): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned long', possible loss of data
+                 c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\toctreedemo.cpp(50) : see reference to function template instantiation 'T RandomNum<float>(T,T,unsigned int)' being compiled
+                 with
+                 [
+                     T=float
+                 ]
+         tDSFFile.cpp
+     1>c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\tdsffile.cpp(102): warning C4244: 'return' : conversion from 'std::streamoff' to 'int', possible loss of data
+     1>c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\tdsffile.cpp(124): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'int', possible loss of data
+         tDemoList.cpp
+         tDemo.cpp
+     1>c:\program files (x86)\microsoft visual studio 11.0\vc\include\math.h(631): warning C4005: 'M_PI' : macro redefinition
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\sdl2\sdl_stdinc.h(339) : see previous definition of 'M_PI'
+         GLM: angleAxis function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.
+     1>c:\users\mark\documents\visual studio 2012\projects\grphcmn\grphcmn\utility.h(21): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned long', possible loss of data
+                 c:\users\mark\documents\visual studio 2012\projects\grphcmn\grphcmn\utility.h(32) : see reference to function template instantiation 'T RandomNum<T>(T,T,unsigned int)' being compiled
+                 with
+                 [
+                     T=float
+                 ]
+                 c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\tdemo.cpp(145) : see reference to function template instantiation 'T RandomNum<float>(T,T)' being compiled
+                 with
+                 [
+                     T=float
+                 ]
          tBSPDemo.cpp
      1>c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\tbspdemo.cpp(154): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\mark\documents\visual studio 2012\projects\demoz\demoz\tbspdemo.cpp(278): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         Main.cpp
+         Handlers.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Debug\Demoz.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Debug" /LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Additional Libraries\SDL2.0\x86" /LIBPATH:"C:\Users\Mark\Documents\Visual Studio 2012\Projects\grphcmn\grphcmn" wincommon.lib grphcmn.lib SDL2.lib glew32.lib SOIL.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Debug\Demoz.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Debug\Demoz.lib" /MACHINE:X86 Debug\Handlers.obj
          Debug\Main.obj
@@ -14,12 +48,13 @@
          Debug\tDemo.obj
          Debug\tDemoList.obj
          Debug\tDSFFile.obj
+         Debug\tOctreeDemo.obj
          Demoz.vcxproj -> C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Debug\Demoz.exe
        FinalizeBuildStatus:
          Deleting file "Debug\Demoz.unsuccessfulbuild".
          Touching "Debug\Demoz.lastbuildstate".
-     1>Done Building Project "C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Demoz\Demoz.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Mark\Documents\Visual Studio 2012\Projects\Demoz\Demoz\Demoz.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:07.82
+Time Elapsed 00:00:34.49

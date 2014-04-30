@@ -87,6 +87,7 @@
     <ClCompile Include="tDemo.cpp" />
     <ClCompile Include="tDemoList.cpp" />
     <ClCompile Include="tDSFFile.cpp" />
+    <ClCompile Include="tOctreeDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handlers.h" />
@@ -95,6 +96,7 @@
     <ClInclude Include="tDemo.h" />
     <ClInclude Include="tDemoList.h" />
     <ClInclude Include="tDSFFile.h" />
+    <ClInclude Include="tOctreeDemo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

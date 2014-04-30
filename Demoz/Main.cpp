@@ -6,6 +6,8 @@
 #include "tGraphicsController.h"
 #include "tInputController.h"
 #include "tProgramManager.h"
+#include "tTextureManager.h"
+#include "tModeToggler.h"
 
 HINSTANCE hInst = NULL;
 
@@ -26,6 +28,16 @@ void Cleanup()
 	if (pPM != NULL)
 	{
 		delete pPM;
+	}
+	tTextureManager* pTM = tTextureManager::GetTextureManager();
+	if (pTM != NULL)
+	{
+		delete pTM;
+	}
+	tModeToggler* pMT = tModeToggler::GetModeToggler();
+	if (pMT != NULL)
+	{
+		delete pMT;
 	}
 }
 

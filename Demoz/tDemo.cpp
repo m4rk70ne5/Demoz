@@ -180,7 +180,7 @@ void tSpinningBoxDemo::InitDemo(int maxFps, int minFps)
 	// now intialize the camera
 	m_Camera = new tCamera(tVecf(0.0f, 0.0f, 0.0f), tVecf(0.0f, 1.0f, 0.0f), tVecf(0.0f, 0.0f, -1.0f), 0.05f);
 	m_dynamicObj.push_back(m_Camera);
-	m_tGC->SetCamMatrix(&m_Camera->m_transformationMat); // set the graphic controller's camera matrix
+	m_tGC->SetCam(m_Camera); // set the graphic controller's camera matrix
 
 	// initialize the static uniforms for the program of batch 1
 	tProgramManager* pPM = tProgramManager::GetProgramManager();

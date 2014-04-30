@@ -32,6 +32,7 @@ tDemoList::~tDemoList()
 void tDemoList::CreateDemos()
 {
 	Add(CreateDemo<tBSPDemo>, L"BSP Viewer", 800, 600);
+	Add(CreateDemo<tOctreeDemo>, L"Octree Demo", 800, 600);
 	Add(CreateDemo<tSpinningBoxDemo>, L"Spinning Boxes", 800, 600);
 }
 

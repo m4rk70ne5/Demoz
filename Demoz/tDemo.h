@@ -48,6 +48,7 @@ protected:
 	string ShadString(char*);
 	vector<tObject*> m_dynamicObj;
 	tGameClock* m_gameClock;
+	unsigned int m_globalUBuffers;
 public:
 	tDemoList* m_parentListBox;
 	tPathSettings m_settings;
