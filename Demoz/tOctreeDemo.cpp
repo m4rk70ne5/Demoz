@@ -91,9 +91,10 @@ void tOctreeDemo::InitDemo(int maxFPS, int minFPS)
 	pModeToggler->SetCurrentDemo("OctreeDemo");
 	m_dynamicObj.push_back(pModeToggler);
 	// now for the camera
-	m_Camera = new tCamera(tVecf(0.0f, 0.0f, 0.0f), tVecf(0.0f, 1.0f, 0.0f), tVecf(0.0f, 0.0f, -1.0f), 0.05f, true);
+	m_Camera = new tCamera(tVecf(0.0f, 0.0f, 0.0f), tVecf(0.0f, 1.0f, 0.0f), tVecf(0.0f, 0.0f, -1.0f), 0.1f, true);
 	m_dynamicObj.push_back(m_Camera);
 	m_tGC->SetCam(m_Camera); // set the graphic controller's camera
+	m_Camera->SetCamPosition(pOctree->GetCenter());
 
 	// initialize global uniforms (put this in a function later?)
 	tGraphicsController* pgc = tGraphicsController::GetGraphicsController();
@@ -135,6 +136,9 @@ void tOctreeDemo::InitDemo(int maxFPS, int minFPS)
 	// attach objects to input controller
 	// the keys are handled in the update automatically
 	m_IC->AttachMObject(m_Camera);
+
+	// collidable geometry
+	m_Camera->AddCollidable(pOctree);
 }
 
 void tOctreeDemo::EndDemo()
