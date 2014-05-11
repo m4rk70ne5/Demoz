@@ -46,7 +46,7 @@ void tDemo::InitDemo(int maxFps, int minFps)
 	// glm::mat4 proj = pGC->GetProjectionMatrix();
 	glm::mat4 proj;
 	float f = 100.0f;
-	float n = 1.0f;
+	float n = 0.8f;
 	float t = glm::tan(45.0f / 2) * n;
 	float b = -t;
 	float r = t * (4.0f / 3.0f);

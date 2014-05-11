@@ -40,7 +40,7 @@ void tOctreeDemo::InitDemo(int maxFPS, int minFPS)
 	tMeshReader mr(ResString("cube.msh")); // load mesh
 	// create cubes based off of it
 	bool newVao = true;
-	for (int i = 0; i < 32; i++)
+	for (int i = 0; i < 20; i++)
 	{
 		// create random axis to spin
 		tVecf axis = tCubeMesh::RandomVector(1.0f, 2.0f);
@@ -91,7 +91,7 @@ void tOctreeDemo::InitDemo(int maxFPS, int minFPS)
 	pModeToggler->SetCurrentDemo("OctreeDemo");
 	m_dynamicObj.push_back(pModeToggler);
 	// now for the camera
-	m_Camera = new tCamera(tVecf(0.0f, 0.0f, 0.0f), tVecf(0.0f, 1.0f, 0.0f), tVecf(0.0f, 0.0f, -1.0f), 0.1f, true);
+	m_Camera = new tCamera(tVecf(0.0f, 0.0f, 0.0f), tVecf(0.0f, 1.0f, 0.0f), tVecf(0.0f, 0.0f, -1.0f), 0.1f, true, 3.0f);
 	m_dynamicObj.push_back(m_Camera);
 	m_tGC->SetCam(m_Camera); // set the graphic controller's camera
 	m_Camera->SetCamPosition(pOctree->GetCenter());
