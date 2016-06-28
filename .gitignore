@@ -5,6 +5,7 @@
 *.suo
 *.sln.cache
 *.opensdf
+*.sdf
 *.tga
 *.jpg
 *.jpeg

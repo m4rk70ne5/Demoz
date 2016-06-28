@@ -137,7 +137,7 @@ void tSpinningBoxDemo::InitDemo(int maxFps, int minFps)
 	// batch 1 (and the only batch)
 	int vaoId = -1; // for storing the vao
 	vector<tGeometry*> tempGeo; // for storing geometry
-	tMeshReader mr(ResString("cube.msh"));
+	tMeshReader mr(ResString("cube2.msh"));
 	
 	tVecf axis = tCubeMesh::RandomVector(1.0f, 2.0f);
 	axis.normalize();

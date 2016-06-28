@@ -35,7 +35,7 @@ class tDemo
 {
 protected:
 	bool m_done;
-	virtual void InitDemo(int = 0, int = 0);
+	virtual void InitDemo(int = 50, int = 25);
 	virtual void EndDemo();
 	static unsigned __stdcall StopDemoThread(void*);
 	static tGraphicsController* m_tGC;

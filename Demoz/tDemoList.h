@@ -5,6 +5,7 @@
 #include "tDemo.h"
 #include "tBSPDemo.h"
 #include "tOctreeDemo.h"
+#include "tLightingDemo.h"
 #include <string>
 #include <vector>
 

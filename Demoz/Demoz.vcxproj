@@ -87,6 +87,7 @@
     <ClCompile Include="tDemo.cpp" />
     <ClCompile Include="tDemoList.cpp" />
     <ClCompile Include="tDSFFile.cpp" />
+    <ClCompile Include="tLightingDemo.cpp" />
     <ClCompile Include="tOctreeDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +97,11 @@
     <ClInclude Include="tDemo.h" />
     <ClInclude Include="tDemoList.h" />
     <ClInclude Include="tDSFFile.h" />
+    <ClInclude Include="tLightingDemo.h" />
     <ClInclude Include="tOctreeDemo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="usage.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

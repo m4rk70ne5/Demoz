@@ -33,6 +33,12 @@
     <ClCompile Include="tBSPDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tOctreeDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tLightingDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -53,5 +59,14 @@
     <ClInclude Include="tBSPDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tOctreeDemo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tLightingDemo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="usage.txt" />
   </ItemGroup>
 </Project>

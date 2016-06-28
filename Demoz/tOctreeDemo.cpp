@@ -37,7 +37,7 @@ void tOctreeDemo::InitDemo(int maxFPS, int minFPS)
 	vector<tMesh*> meshesForOctree; // for octree
 	vector<tGeometry*> boundingBoxGeo;
 	vector<tBoundingBox*> boundingBoxVec;
-	tMeshReader mr(ResString("cube.msh")); // load mesh
+	tMeshReader mr(ResString("cube2.msh")); // load mesh
 	// create cubes based off of it
 	bool newVao = true;
 	for (int i = 0; i < 20; i++)

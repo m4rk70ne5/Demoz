@@ -34,6 +34,7 @@ void tDemoList::CreateDemos()
 	Add(CreateDemo<tBSPDemo>, L"BSP Viewer", 800, 600);
 	Add(CreateDemo<tOctreeDemo>, L"Octree Demo", 800, 600);
 	Add(CreateDemo<tSpinningBoxDemo>, L"Spinning Boxes", 800, 600);
+	Add(CreateDemo<tLightingDemo>, L"Lighting", 800, 600);
 }
 
 void tDemoList::Add(tDemo*(*createMe)(), TCHAR* name, int width, int height)
@@ -102,7 +103,7 @@ void tDemoList::SendStopSignal(int index)
 		TerminateThread(entry.m_threadHandle, -1);
 	}
 	// restore listbox and windows
-	EnableWindow(GetHwnd(), FALSE); // disable the list for keyboard and mouse input
+	EnableWindow(GetHwnd(), TRUE); // enable the list for keyboard and mouse input
 	// disable stop, enable run
 	EnableWindow(GetDlgItem(GetParentWindow(), IDC_BTN_RUN), TRUE);
 	// enable settings
